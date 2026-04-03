@@ -165,15 +165,124 @@
     <?php
         //---- indexed Array----
 
-        $std = ["jaydeb", "subha", "rudra","ACP"];
-        $stdg = array("Sudrisna", "barnita", "Arpita", "ananya");
+        $num = [1,2,34,5,6,7,8];
+        $word = array("Sudrisna", "barnita", "Arpita", "ananya");
 
-        echo "boys $std[0] and $std[2]";
-        echo " girls $stdg[0] and $stdg[1]";
+        echo "boys $num[0] and $num[2] <br/>";
+        echo " girls $word[0] and $word[1]";
 
         
+
+        //------- Associative Array--------
+
+        echo " <h3>Associative array </h3>";
+
+
+        $std = [
+            "name" => "jaydeb",
+            "course" => "Bsc.IT",
+            "age " => 21,
+            "Cgpa" => 7.83,
+            "pass" => true
+        ];
+
+        echo $std["name"] . "<br/>";
+        $keys  = array_keys($std);
+
+        echo "<br/> $keys[0] , $keys[1]";
+
+        foreach($std as $s)
+            {
+                echo "<br/>";
+                echo $s;
+            }
         
+        foreach ($std as $k => $v)
+            {
+                echo "<br/>";
+
+                echo "$k : $v";
+            }
+
+        // --------Multidimention Array--------
+
+        $stds = [
+            ["jaydeb",21, 7.8,true],
+            ["subha",22, 9.4, false],
+            ["rudra",18, 7.4, true],
+            ["acp",22, 8.4, false]
+        ];
+
+        echo "<br/>heighest CGPA ". $stds[1][2] ;
+
+        
+        echo "<br/>";
+        foreach($stds as $s)
+            {
+
+                echo  "<br/>".$s[1];
+            }
+
     ?>
+
+    <!--------Functions-------------->
+
+    <h1>Funtions</h1>
+
+    <?php 
+        
+        //-----Simple Function------
+        function hello()
+        {
+            echo " hello <br/>";
+        }
+
+        hello();
+
+        //------Function with Parameters-----
+        function greet($name)
+        {
+            echo "hellow $name <br/>";
+        }
+
+        greet("jaydeb");
+
+        //-----Function with Return Value-----
+        
+        function add($a, $b)
+        {
+            return $a + $b;
+        }
+
+        $result = add(10, 22);
+
+        echo "$result <br/>";
+
+        //------Default Parameters----
+
+        function guest($name = "User")
+        {
+            echo "Hello $name <br/>";
+        }
+
+        guest();
+        guest("Jaydeb");
+
+        //------Function with Array-----
+
+        function printArray($arr)
+        {
+            foreach($arr as $a)
+                {
+                    echo "value $a <br/>";
+                }
+        }
+
+        $num = [1,4,2,3,5];
+
+        printArray($num);
+    ?>
+    
 
 </body>
 </html>
