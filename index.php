@@ -282,7 +282,12 @@
 
         printArray($num);
     ?>
+    <h1>forms </h1>
+        <br/>
     
+    <button>
+        <a href="forms.php">Go to Forms</a>
+    </button>
 
 </body>
 </html>
