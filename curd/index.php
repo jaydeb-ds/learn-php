@@ -55,7 +55,7 @@
 
 
     <?php
-        $query = "SELECT * FROM `student`";
+        $query = "SELECT * FROM `student` ORDER BY cgpa ASC";
 
         $data = mysqli_query($conn,$query);
 
@@ -66,6 +66,48 @@
             // echo "</pre>";
         }
     ?>
+
+    <!-- delete  -->
+     <?php
+            // function delete($id)
+            // {
+
+            //     // echo "<h2>------delete----------</h2>";
+            //     $delQuery = "DELETE FROM `student` WHERE id = $id";
+            //     $data = mysqli_query($conn,$delQuery);
+
+            //     if($data)
+            //         {
+            //             // echo "<pre>"
+            //             // print_r($data);
+            //             // echo "</pre>"
+                        
+            //             echo "<h2>------delete----------</h2>";  
+            //         }
+            // }
+            // delete();
+
+            if(isset($_POST["delete"]))
+                {
+                    $id = $_POST["delete"];
+                    // delete($id);
+                     $delQuery = "DELETE FROM `student` WHERE id = $id";
+                    $delData= mysqli_query($conn,$delQuery);
+
+                    if ($delData) {
+                            echo "<pre>";
+                            echo $delData;
+                            echo "</pre>";
+                            echo "<h2>------delete----------</h2>";
+
+                            $data = mysqli_query($conn,$query);
+                            if($data)   
+                                {
+                                    echo "<h1>data fetch after delete</h1>";
+                                }
+                    }
+                }
+     ?>
 
     <table border='1'>
         <thead>
@@ -84,6 +126,15 @@
                 <td><?php echo $row['name']; ?></td>
                 <td><?php echo $row['dept']; ?></td>
                 <td><?php echo $row['cgpa']; ?></td>
+
+                <!-- Updata Button-->
+                <td><a href="update.php?id=<?php echo $row['id']; ?>"><button>UPDATE</button></a></td>
+                <!-- delete Button -->
+                <td>
+                    <form method="POST">
+                        <button type="submit" value=<?php echo $row["id"] ?> name="delete">DELETE</button>
+                    </form>
+                </td>
             </tr>
 
             <?php } ?>
