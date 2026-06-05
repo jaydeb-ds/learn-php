@@ -24,7 +24,7 @@
         comment */
      ?>
 
-    <!-------- Data type and variable-------->
+    <!-------- Data type and variable----------->
     
     <?php 
     $name = "jaydeb";
